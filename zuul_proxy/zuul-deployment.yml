@@ -40,11 +40,4 @@ spec:
             secretKeyRef:
               name: postgresdb
               key: database-user
-        volumeMounts:
-        - name: tz-config
-          mountPath: /etc/localtime
-      volumes:
-        - name: tz-config
-          hostPath:
-            path: /usr/share/zoneinfo/Europe/Tallinn
 
