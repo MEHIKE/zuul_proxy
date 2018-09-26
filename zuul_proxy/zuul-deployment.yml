@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: zuul-proxy
-        image: mehike/zuul-proxy:0.0.1
+        image: mehike/zuul_proxy:0.0.1
         ports:
         - containerPort: 8060
         env:
