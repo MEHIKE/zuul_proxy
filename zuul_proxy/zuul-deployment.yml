@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul
+  labels:
+    app: zuul
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zuul
+  template:
+    metadata:
+      labels:
+        app: zuul
+    spec:
+      containers:
+      - name: zuul-proxy
+        image: mehike/zuul-proxy:0.0.1
+        ports:
+        - containerPort: 8060
+        env:
+        - name: CONFIG_SERVICE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: service-host
+        - name: CONFIG_SERVICE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: service-port
+        - name: EUREKA_URI
+          valueFrom:
+            configMapKeyRef:
+              name: eureka
+              key: eureka-uri
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgresdb
+              key: database-user
+
