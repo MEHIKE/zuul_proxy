@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableDiscoveryClient
 @EnableZuulProxy
-//@EnableSwagger2
+@EnableSwagger2
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 public class ZuulProxyApplication {
 
