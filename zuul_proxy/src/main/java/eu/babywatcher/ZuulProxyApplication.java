@@ -20,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableZuulProxy
 @EnableSwagger2
 @EnableOAuth2Sso
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
+@SpringBootApplication//(exclude = {SecurityAutoConfiguration.class })
 public class ZuulProxyApplication {
 
 	public static void main(String[] args) {
